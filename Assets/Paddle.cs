@@ -7,10 +7,11 @@ using UnityEngine.InputSystem.UI;
 public class Paddle : MonoBehaviour
 {
     public PlayerInput input;
+    public bool isPlayer1;
+    private KeyCode upBinding;
+    private KeyCode downBinding;
     private Rigidbody2D rigidbody;
-    private float movementX;
     private float movementY;
-    private Vector2 movement;
     public float speed = 1;
 
 
@@ -18,22 +19,37 @@ public class Paddle : MonoBehaviour
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        if (isPlayer1)
+        {
+            upBinding = KeyCode.W;
+            downBinding = KeyCode.S;
+        } else
+        {
+            upBinding = KeyCode.UpArrow;
+            downBinding = KeyCode.DownArrow;
+        }
     }
 
-    // Update is called once per frame
+    private void Update()
+    {
+        if (Input.GetKey(upBinding))
+        {
+            movementY = 1.0f;
+        }
+
+        if (Input.GetKey(downBinding))
+        {
+            movementY = -1.0f;
+        }
+    }
+
     void FixedUpdate()
     {
         rigidbody.AddForce(
-            new Vector2(movementX, movementY) * speed
+            new Vector2(0.0f, movementY) * speed
         );
-    }
-
-    private void OnMove(InputValue movementValue)
-    {
-        movement = movementValue.Get<Vector2>();
-        movementX = movement.x;
-        movementY = movement.y;
-
+        //movementY = 0.0f;
+        movementY = movementY / 4.0f;
     }
 
 
