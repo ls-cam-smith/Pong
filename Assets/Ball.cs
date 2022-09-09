@@ -5,11 +5,24 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     private Rigidbody2D rigidbody;
-    // Start is called before the first frame update
+
     void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
         Reset();
+    }
+
+    private void FixedUpdate()
+    {
+        var velocity = rigidbody.velocity;
+        if (velocity.magnitude < 0.1f)
+        {
+            rigidbody.AddForce(new Vector2(0.1f, 0.1f));
+        }
+        else if (velocity.magnitude > 5.0f)
+        {
+
+        }
     }
 
     private void Reset()
@@ -33,7 +46,7 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            var shoveVector = rigidbody.velocity * new Vector2(1.01f, 1.5f);
+            var shoveVector = rigidbody.velocity * new Vector2(1.2f, 1.3f);
             rigidbody.velocity = shoveVector;
         }
     }
