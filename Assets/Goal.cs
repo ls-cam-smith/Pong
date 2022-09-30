@@ -7,11 +7,6 @@ public class Goal : MonoBehaviour
     public Scoreboard scoreboard;
     public bool isForP1;
 
-    public void Start()
-    {
-        scoreboard = GetComponent<Scoreboard>();
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Ball")

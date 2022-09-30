@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -21,12 +22,12 @@ public class Scoreboard : MonoBehaviour
     public void IncrementP1()
     {
         p1Score += 1;
-        p1Scoreboard.text = p1Score.ToString();
+        p1Scoreboard.text = String.Format("{0, 0:D2}", p1Score);
     }
 
     public void IncrementP2()
     {
         p2Score += 1;
-        p2Scoreboard.text = p2Score.ToString();
+        p2Scoreboard.text = String.Format("{0, 0:D2}", p2Score);
     }
 }
