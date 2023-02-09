@@ -10,19 +10,20 @@ public class Paddle : MonoBehaviour
 
     private KeyCode upBinding;
     private KeyCode downBinding;
-    private Rigidbody2D rigidbody;
+    new private Rigidbody2D rigidbody2D;
     private float movementY;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
         if (isPlayer1)
         {
             upBinding = KeyCode.W;
             downBinding = KeyCode.S;
-        } else
+        }
+        else
         {
             upBinding = KeyCode.UpArrow;
             downBinding = KeyCode.DownArrow;
@@ -44,7 +45,7 @@ public class Paddle : MonoBehaviour
 
     void FixedUpdate()
     {
-        rigidbody.AddForce(
+        rigidbody2D.AddForce(
             new Vector2(0.0f, movementY) * speed
         );
         movementY = movementY / 4.0f;
