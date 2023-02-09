@@ -10,7 +10,7 @@ public class Paddle : MonoBehaviour
 
     private KeyCode upBinding;
     private KeyCode downBinding;
-    private Rigidbody2D rigidbody;
+    private new Rigidbody2D rigidbody;
     private float movementY;
 
 

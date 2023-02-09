@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    private Rigidbody2D rigidbody;
+    private new Rigidbody2D rigidbody;
 
     void Start()
     {
@@ -15,7 +15,7 @@ public class Ball : MonoBehaviour
     private void FixedUpdate()
     {
         var velocity = rigidbody.velocity;
-        if (velocity.magnitude < 0.1f)
+        if (velocity.magnitude <= 0.1f)
         {
             rigidbody.AddForce(new Vector2(0.1f, 0.1f));
         }
@@ -42,12 +42,12 @@ public class Ball : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            var shoveVector = rigidbody.velocity * new Vector2(1.2f, 1.3f);
-            rigidbody.velocity = shoveVector;
-        }
-    }
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        var shoveVector = rigidbody.velocity * new Vector2(1.2f, 1.3f);
+    //        rigidbody.velocity = shoveVector;
+    //    }
+    //}
 }
