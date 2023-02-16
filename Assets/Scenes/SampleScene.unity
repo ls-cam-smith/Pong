@@ -1368,14 +1368,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1635881256400024156, guid: f789dda375e0440a6b29baa0e15e533f, type: 3}
-      propertyPath: m_Mass
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 1635881256400024156, guid: f789dda375e0440a6b29baa0e15e533f, type: 3}
-      propertyPath: m_LinearDrag
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 3455222323580183813, guid: f789dda375e0440a6b29baa0e15e533f, type: 3}
       propertyPath: isPlayer1
       value: 1
