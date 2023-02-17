@@ -47,6 +47,7 @@ public class Paddle : MonoBehaviour
         rigidbody.AddForce(
             new Vector2(0.0f, movementY) * speed
         );
+        // a kind of logarithmic falloff, maybe the new input system can handle this for me?
         movementY = movementY / 4.0f;
     }
 
